@@ -1,0 +1,21 @@
+<!-- Page d'ajout d'une catégorie -->
+<h1>Ajouter une catégorie</h1>
+<!-- Formulaire de saisie d'un nouvel article -->
+<form action="<?= $requestUrl ?>/admin/categories/addcategorie" method="post" enctype="multipart/form-data">
+    <fieldset>
+        <legend>Informations</legend>
+        <p>
+            <label for="name">Nom :</label></br>
+            <input type="text" id="name" name="name">
+        </p>
+        <p>
+            <label class="textarea" for="contents">Description :</label></br>
+            <textarea id="contents" name="contents" rows="15"></textarea>
+        </p>
+        <p>
+            <label for="picture">Image :</label></br>	
+            <input type="file" name="picture" id="picture" accept="image/png,image/jpeg,image/gif">
+        </p>
+            <input type="submit" value="Enregistrer" >
+    </fieldset>
+</form>
