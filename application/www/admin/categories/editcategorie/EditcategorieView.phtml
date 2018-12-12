@@ -2,6 +2,7 @@
 <h1>Modifier la catégorie</h1>
 <!-- Formulaire de saisie d'un nouvel article -->
 <form action="<?= $requestUrl ?>/admin/categories/editcategorie" method="post" enctype="multipart/form-data">
+
     <fieldset>
         <legend>Informations</legend>
         <p>
@@ -15,6 +16,8 @@
         <p>
             <label for="picture">Image :</label></br>	
             <input type="file" name="picture" id="picture" accept="image/png,image/jpeg,image/gif">
+            <input type="hidden" name="originalpicture" value="<?=$categorie['categorie_picture']?>">
+            <input type="hidden" name="id" value="<?=$categorie['idcategories']?>">
         </p>
             <input type="submit" value="Enregistrer" >
     </fieldset>

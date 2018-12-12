@@ -11,7 +11,7 @@ class EditcategorieController
     	 * L'argument $queryFields contient l'équivalent de $_GET en PHP natif.
     	 */
         $id = $queryFields['id'];
-
+        //Récupération des données dans la vue
         $categoryModel = new CategoryModel();
         $categorie = $categoryModel->find($id);
         return[
@@ -22,14 +22,19 @@ class EditcategorieController
 
     public function httpPostMethod(Http $http, array $formFields)
     {
-        //Traitement de l'image
-
-        if ($http->hasUploadedFile('picture'));{
-            $picture = $http->moveUploadedFile('picture','/images/tea');//On déplace la photo à l'endroit désiré(le chemin est relatif par rapport au dossier www)
-        }                        
+        //Récupération de la photo originale
+        if ($http->hasUploadedFile('picture')){
+            $picture = $http->moveUploadedFile('picture','/images/tea');//On déplace la photo à l'endroit désiré(le chemin est relatif par rapport au dossier www)et on stocke dans la variable photo le nom du fichier
+        }else{
+            $picture = $formFields['originalpicture'];// Le nom de l'image reste le nom qui était là à l'origine
+        }                    
         // Enregistrer les données dans la base de données
         $categoryModel = new CategoryModel();
-        $categoryModel->add($formFields['name'], $formFields['contents'], $picture);
+        $categoryModel->update($formFields['id'], $formFields['name'], $formFields['contents'], $picture);
+        //Ajout du flashbag
+        $flashbag = new Flashbag();
+        $flashbag->add('La catégorie a bien été modifiée');
+        //Redirection
         $http->redirectTo('admin/categories');
     }
 }

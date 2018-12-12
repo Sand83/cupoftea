@@ -11,10 +11,14 @@ class CategoriesController
     	 * L'argument $queryFields contient l'équivalent de $_GET en PHP natif.
     	 */
 		$categoryModel = new CategoryModel();
-        $categories = $categoryModel->listAll();
-        
+		//Récupération des données de la BDD
+		$categories = $categoryModel->listAll();
+		//Création du flashbag
+		$flashbag = new FlashBag();
+		//création d'un tableau ->renvoie un tableau de variable pour l'envoyer à la vue
         return [
-            'categories' => $categories
+			'categories' => $categories,
+			'flashbag'=> $flashbag->fetchMessages()
         ];
     }
 
