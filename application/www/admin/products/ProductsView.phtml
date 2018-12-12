@@ -1,8 +1,8 @@
 <section>
-<h1>Liste des catégories</h1>
-<a href="<?= $requestUrl ?>/admin/categories/addcategorie">Ajouter une catégorie</a>
+<h1>Liste des produits</h1>
+<a href="<?= $requestUrl ?>/admin/products/addproduct">Ajouter un produit</a>
 
-    <table id="tableDonnee">
+    <table>
         <thead>
             <th>Id</th>
             <th>Nom</th>
@@ -17,7 +17,7 @@
                     <td><?=$categorie['categorie_name']?></td>
                     <td><?=$categorie['categorie_description']?></td>
                     <td><img src="<?= $wwwUrl ?>/images/tea/<?=$categorie['categorie_picture']?>" alt="Tasse de <?=$categorie['categorie_name']?>" /></td>
-                    <td><a href="<?= $requestUrl ?>/admin/categories/editcategorie?id=<?=$categorie['idcategories']?>"><i class="fas fa-edit"></i></a> <a href="<?= $requestUrl ?>/admin/categories/delcategorie?id=<?=$categorie['idcategories']?>"data-toggle="modal" data-target="#delete"><i class="fas fa-trash-alt"></i></a></td>
+                    <td><a href="<?= $requestUrl ?>/admin/categories/editcategorie?id=<?=$categorie['idcategories']?>"><i class="fas fa-edit"></i></a> <a href="<?= $requestUrl ?>/admin/categories/delcategorie?id=<?=$categorie['idcategories']?>"><i class="fas fa-trash-alt"></i></a></td>
                 </tr>
             <?php endforeach;?>
         </tbody>

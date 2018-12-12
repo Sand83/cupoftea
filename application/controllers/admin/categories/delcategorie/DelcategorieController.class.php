@@ -18,12 +18,14 @@ class DelcategorieController
         $image = $picture['categorie_picture'];
         if(file_exists(WWW_PATH.'/images/tea/'.$image)){
             unlink(WWW_PATH.'/images/tea/'.$image);
+        }else{
+            $http->redirectTo('admin/categories');
         }
         /*Suppression d'une catégorie*/
         $categorie = $categoryModel->delete($id);
         //Création du flashbag
         $flashbag = new Flashbag();
-        $flashbag->add('La catégorie a bien été supprimée');
+        $flashbag->add('La catégorie '.$picture['categorie_name'].' a bien été supprimée');
         //redirige vers la liste des catégories
         $http->redirectTo('admin/categories');
 

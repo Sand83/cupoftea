@@ -2,8 +2,10 @@
 
 class CategoriesController
 {
+
     public function httpGetMethod(Http $http, array $queryFields)
     {
+		
     	/*
     	 * Méthode appelée en cas de requête HTTP GET
     	 *

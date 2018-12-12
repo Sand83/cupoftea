@@ -25,7 +25,7 @@ class AddcategorieController
         $categoryModel->add($formFields['name'], $formFields['contents'], $picture);
         //Ajout du flashbag
         $flashbag = new Flashbag();
-        $flashbag->add('La catégorie a bien été ajoutée');
+        $flashbag->add('La catégorie '.$formFields['name'].' a bien été ajoutée');
         //Redirection vers la liste des catégories
         $http->redirectTo('admin/categories');
     }

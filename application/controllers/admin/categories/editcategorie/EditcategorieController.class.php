@@ -33,7 +33,7 @@ class EditcategorieController
         $categoryModel->update($formFields['id'], $formFields['name'], $formFields['contents'], $picture);
         //Ajout du flashbag
         $flashbag = new Flashbag();
-        $flashbag->add('La catégorie a bien été modifiée');
+        $flashbag->add('La catégorie '.$formFields['name'].' a bien été modifiée');
         //Redirection
         $http->redirectTo('admin/categories');
     }
